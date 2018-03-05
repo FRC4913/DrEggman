@@ -1,0 +1,12 @@
+bin/
+dist/
+build/
+
+# IntelliJ files
+.idea/
+*.iml
+out/
+
+.class
+
+.DS_Store
