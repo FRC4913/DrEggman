@@ -42,6 +42,7 @@ public class OI {
 	// public Button joystickRelease = new JoystickButton(joystick, 1);
 	public Button joystickHookUp = new JoystickButton(joystick, 3);
 	public Button joystickClimb = new JoystickButton(joystick, 2);
+	public Button joystickClimberStop = new JoystickButton(joystick, 10);
 
 	// There are a few additional built in buttons you can use. Additionally,
 	// by subclassing Button you can create custom triggers and bind those to
@@ -55,12 +56,13 @@ public class OI {
 		joystickElevatorDown.whileHeld(new ElevatorDown());
 
 		xboxButton5.whileHeld(new BlockRelease());
-		xboxButton6.whileHeld(new BlockRelease());
+		//xboxButton6.whileHeld(new BlockRelease());
 		// joystickRelease.whileHeld(new BlockRelease());
 
 		joystickHookUp.whileHeld(new HookUp());
 		joystickHookUp.whenReleased(new HookDown());
 		joystickClimb.whileHeld(new RobotUp());
+		joystickClimberStop.whileHeld(new HookStop());
 		/*
 		 * xboxButton5.toggleWhenActive(new BlockIntake());
 		 * xboxButton6.toggleWhenActive(new BlockIntake());

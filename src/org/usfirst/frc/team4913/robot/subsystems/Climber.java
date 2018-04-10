@@ -21,6 +21,7 @@ public class Climber extends Subsystem {
 
 	public static double UP_SPEEDCONSTANT = 1.0;
 	public static double DOWN_SPEEDCONSTANT = -0.5;
+	public int currentHeight = 0;
 
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
@@ -30,10 +31,14 @@ public class Climber extends Subsystem {
 
 	public void hookUp() {
 		num1Motor.set(UP_SPEEDCONSTANT);
+		currentHeight++;
 	}
 
 	public void hookDown() {
+		if(currentHeight > 5) {
 		num1Motor.set(DOWN_SPEEDCONSTANT);
+		currentHeight--;
+		}
 	}
 
 	public void robotUp() {

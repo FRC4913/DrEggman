@@ -21,6 +21,10 @@ public class RobotMap {
 	public static int RIGHT_FRONT_MOTOR_PORT = 2;
 	public static int LEFT_FRONT_MOTOR_PORT = 3;
 
+	// limit switches for elevator
+	public static int SWITCH_UP_PORT = 0;
+	public static int SWITCH_DOWN_PORT = 1;
+
 	// Rotator/Intaker (aka Grabber) ports
 	public static int INTAKER_L_MOTOR_PORT = 4;
 	public static int INTAKER_R_MOTOR_PORT = 5;
@@ -39,4 +43,8 @@ public class RobotMap {
 
 	public static int XBOX_CONTROLLER_PORT = 0;
 	public static int JOYSTICK_PORT = 1;
+	
+	//Encoder Ports
+	public static int ENC_SOURCE_1 = 1;
+	public static int ENC_SOURCE_2 = 2;
 }

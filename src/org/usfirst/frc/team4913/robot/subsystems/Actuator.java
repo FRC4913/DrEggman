@@ -15,7 +15,7 @@ public class Actuator extends Subsystem {
 	// Left Trigger from 0 to 1
 	// Right Trigger from 0 to 1
 	public static double ACTUATOR_UP_SPEED = 1.0;
-	public static double ACTUATOR_DOWN_SPEED = 0.5;
+	public static double ACTUATOR_DOWN_SPEED = -0.85;
 	Spark actuatorMotor = new Spark(RobotMap.ACTUATOR_MOTOR_PORT);
 
 	public void initDefaultCommand() {

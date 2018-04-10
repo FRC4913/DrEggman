@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team4913.robot;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -58,6 +59,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
+		CameraServer.getInstance().startAutomaticCapture();
 		m_oi = new OI();
 		m_chooser.addDefault("Default Auto", new Drive());
 		m_chooser.addObject("Position 1 STRAIGHT", new
@@ -81,7 +83,6 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putData(intaker);
 		SmartDashboard.putData(climber);
 		SmartDashboard.putData(driveSubsystem);
-		SmartDashboard.putData("ElevatorDown", new ElevatorDown());
 		SmartDashboard.putData("ElevatorUp", new ElevatorUp());
 		SmartDashboard.putData("RotatorMove", new RotatorMove());
 		SmartDashboard.putData("BlockIntake", new BlockIntake());
@@ -159,7 +160,7 @@ public class Robot extends TimedRobot {
 			if (deliverCube && gameData.charAt(0) == 'L') {
 				m_autonomousCommand = new AutonomousOutsideDrive(TURN.RIGHT, true, useVision);
 			} else
-				m_autonomousCommand = new AutonomousOutsideDrive(TURN.STRAIGHT, false, useVision);
+				m_autonomousCommand = new AutonomousOutsideDrive(TURN.RIGHT, false, useVision);
 			break;
 		case 2: // middle position
 			if (deliverCube && gameData.charAt(0) == 'L')
@@ -173,7 +174,7 @@ public class Robot extends TimedRobot {
 			if (deliverCube && gameData.charAt(0) == 'R') {
 				m_autonomousCommand = new AutonomousOutsideDrive(TURN.LEFT, true, useVision);
 			} else
-				m_autonomousCommand = new AutonomousOutsideDrive(TURN.STRAIGHT, false, useVision);
+				m_autonomousCommand = new AutonomousOutsideDrive(TURN.LEFT, false, useVision);
 			break;
 		}
 
