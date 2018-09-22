@@ -16,26 +16,20 @@ package org.usfirst.frc.team4913.robot;
 public class RobotMap {
 
 	// Drive motor ports
-	public static int RIGHT_REAR_MOTOR_PORT = 0;
-	public static int LEFT_REAR_MOTOR_PORT = 1;
-	public static int RIGHT_FRONT_MOTOR_PORT = 2;
-	public static int LEFT_FRONT_MOTOR_PORT = 3;
+	public static int RIGHT_REAR_MOTOR_ID = 0;
+	public static int LEFT_REAR_MOTOR_ID = 1;
+	public static int RIGHT_FRONT_MOTOR_ID = 2;
+	public static int LEFT_FRONT_MOTOR_ID = 3;
 
 	// limit switches for elevator
-	public static int SWITCH_UP_PORT = 0;
-	public static int SWITCH_DOWN_PORT = 1;
+	//public static int SWITCH_UP_PORT = 0;
+	//public static int SWITCH_DOWN_PORT = 1;
 
-	// Rotator/Intaker (aka Grabber) ports
-	public static int INTAKER_L_MOTOR_PORT = 4;
-	public static int INTAKER_R_MOTOR_PORT = 5;
-	public static int ROTATOR_MOTOR_PORT = 6;
-
-	public static int CLIMBER_NUM1_MOTOR_PORT = 7;
-	public static int CLIMBER_NUM2_MOTOR_PORT = 8;
-
-	// Motor controllers connected to the PWM ports
-	public static int ACTUATOR_MOTOR_PORT = 0; // Spark MotorController
-	public static int ELEVATOR_MOTOR_PORT = 1; // SPARK MotorController
+	public static int GRABBER_MOTOR_PORT = 0;
+	
+	public static int ROTATOR_MOTOR_ID = 4;
+	public static int CLIMBER_MOTOR_ID = 5;
+	public static int ARM_MOTOR_ID = 6;
 
 	public static int VISION_INPUT_7 = 7;
 	public static int VISION_INPUT_8 = 8;

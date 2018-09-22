@@ -1,19 +1,25 @@
 package org.usfirst.frc.team4913.robot.commands;
 
-import static org.usfirst.frc.team4913.robot.Robot.elevator;
+import static org.usfirst.frc.team4913.robot.OI.xboxController;
+import static org.usfirst.frc.team4913.robot.OI.joystick;
+import static org.usfirst.frc.team4913.robot.Robot.grabber;
 
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ElevatorDown extends Command {
+public class GrabberClose extends Command {
 
-	public ElevatorDown() {
+	private static final double TRIGGER_THRESHOLD = 0.1;
+
+	public GrabberClose() {
+
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
-		super("ElevatorDown");
-		requires(elevator);
+		super("BlockRelease");
+		requires(grabber);
 	}
 
 	// Called just before this Command runs the first time
@@ -22,17 +28,17 @@ public class ElevatorDown extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		elevator.down();
+		grabber.close();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return elevator.isDownLimitSet();
+		return false;
 	}
 
 	// Called once after isFinished returns true
 	protected void end() {
-		elevator.stop();
+		grabber.stop();
 	}
 
 	// Called when another command which requires one or more of the same

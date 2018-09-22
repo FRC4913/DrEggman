@@ -52,10 +52,10 @@ public class OI {
 		joystickActuatorUp.whileHeld(new ActuatorUp());
 		joystickActuatorDown.whileHeld(new ActuatorDown());
 
-		joystickElevatorUp.whileHeld(new ElevatorUp());
-		joystickElevatorDown.whileHeld(new ElevatorDown());
+		joystickElevatorUp.whileHeld(new ArmUp());
+		joystickElevatorDown.whileHeld(new ArmDown());
 
-		xboxButton5.whileHeld(new BlockRelease());
+		xboxButton5.whileHeld(new GrabberClose());
 		//xboxButton6.whileHeld(new BlockRelease());
 		// joystickRelease.whileHeld(new BlockRelease());
 

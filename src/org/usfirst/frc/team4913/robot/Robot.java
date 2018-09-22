@@ -20,8 +20,8 @@ import org.usfirst.frc.team4913.robot.commands.*;
 import org.usfirst.frc.team4913.robot.subsystems.Actuator;
 import org.usfirst.frc.team4913.robot.subsystems.Climber;
 import org.usfirst.frc.team4913.robot.subsystems.DriveSubsystem;
-import org.usfirst.frc.team4913.robot.subsystems.Elevator;
-import org.usfirst.frc.team4913.robot.subsystems.Intaker;
+import org.usfirst.frc.team4913.robot.subsystems.Arm;
+import org.usfirst.frc.team4913.robot.subsystems.Grabber;
 import org.usfirst.frc.team4913.robot.subsystems.Rotator;
 
 /**
@@ -35,10 +35,10 @@ public class Robot extends TimedRobot {
 
 	Preferences prefs;
 	public static final DriveSubsystem driveSubsystem = new DriveSubsystem();
-	public static final Intaker intaker = new Intaker();
+	public static final Grabber grabber = new Grabber();
 	public static final Rotator rotator = new Rotator();
 	public static final Actuator actuator = new Actuator();
-	public static final Elevator elevator = new Elevator();
+	public static final Arm arm = new Arm();
 	public static final Climber climber = new Climber();
 	public static OI m_oi;
 
@@ -77,16 +77,16 @@ public class Robot extends TimedRobot {
 		m_chooser.addObject("Position 3 DELIVER", new
 				AutonomousOutsideDrive(TURN.LEFT, true, false));
 		SmartDashboard.putData("Auto mode", m_chooser);
-		SmartDashboard.putData(elevator);
+		SmartDashboard.putData(arm);
 		SmartDashboard.putData(actuator);
 		SmartDashboard.putData(rotator);
-		SmartDashboard.putData(intaker);
+		SmartDashboard.putData(grabber);
 		SmartDashboard.putData(climber);
 		SmartDashboard.putData(driveSubsystem);
-		SmartDashboard.putData("ElevatorUp", new ElevatorUp());
+		SmartDashboard.putData("ElevatorUp", new ArmUp());
 		SmartDashboard.putData("RotatorMove", new RotatorMove());
-		SmartDashboard.putData("BlockIntake", new BlockIntake());
-		SmartDashboard.putData("BlockRelease", new BlockRelease());
+		SmartDashboard.putData("BlockIntake", new GrabberOpen());
+		SmartDashboard.putData("BlockRelease", new GrabberClose());
 		SmartDashboard.putData("HookDown", new HookDown());
 		SmartDashboard.putData("HookUp", new HookUp());
 		SmartDashboard.putData("RobotUp", new RobotUp());

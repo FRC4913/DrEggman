@@ -47,7 +47,7 @@ public class AutonomousMiddleDrive extends Command {
 		requires(driveSubsystem);
 //		requires(elevator);
 		requires(rotator);
-		requires(intaker);
+		requires(grabber);
 		this.direction = direction;
 		this.deliverCube = deliverCube;
 		this.useVision = useVision;
@@ -93,15 +93,15 @@ public class AutonomousMiddleDrive extends Command {
 		}
 		 else if (timerVal >= approachTime && timerVal < rotatorTime) {
 				driveSubsystem.stopMotor();
-				intaker.intakeBlock();
+				grabber.open();
 				rotator.move(-0.95);
 //				elevator.stop();
 			}else if (timerVal >= rotatorTime && timerVal < rotatorWaitTime) {
-				intaker.intakeBlock();
+				grabber.open();
 				rotator.stop();
 			}
 			else if (timerVal >= rotatorWaitTime && timerVal < deliverTime) {
-				intaker.releaseBlock();
+				grabber.close();
 //				elevator.stop();
 			}
 		else
@@ -116,7 +116,7 @@ public class AutonomousMiddleDrive extends Command {
 
 	// Called once after isFinished returns true
 	protected void end() {
-		intaker.stop();
+		grabber.stop();
 		actuator.stop();
 		rotator.stop();
 		elevator.stop();

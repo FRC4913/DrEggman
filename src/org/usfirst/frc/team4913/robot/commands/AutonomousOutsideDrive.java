@@ -49,7 +49,7 @@ public class AutonomousOutsideDrive extends Command {
 
 	public AutonomousOutsideDrive(TURN direction, boolean deliverCube, boolean useVision) {
 		requires(driveSubsystem);
-		requires(intaker);
+		requires(grabber);
 		requires(rotator);
 		requires(actuator);
 //		requires(elevator);
@@ -88,14 +88,14 @@ public class AutonomousOutsideDrive extends Command {
 //				elevator.up();
 			} else if (timerVal >= approachTime && timerVal < rotatorTime) {
 				driveSubsystem.stopMotor();
-				intaker.intakeBlock();
+				grabber.open();
 				rotator.move(-1);
 //				elevator.stop();
 			}else if (timerVal >= rotatorTime && timerVal < rotatorWaitTime) {
 				rotator.stop();
 			}
 			else if (timerVal >= rotatorWaitTime && timerVal < deliverTime) {
-				intaker.releaseBlock();
+				grabber.close();
 //				elevator.stop();
 			}
 			else
@@ -135,7 +135,7 @@ public class AutonomousOutsideDrive extends Command {
 //		rotator.stop();
 //		actuator.stop();
 //		elevator.stop();
-		intaker.stop();
+		grabber.stop();
 		driveSubsystem.stopMotor();
 	}
 
